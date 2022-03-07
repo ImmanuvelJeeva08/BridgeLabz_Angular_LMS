@@ -1,0 +1,318 @@
+<div class="bg-img">
+
+    <mat-card fxLayoutAlign="center center" class="card card1">
+
+        <mat-expansion-panel
+            [expanded]="detailsSection === 0"
+            [disabled]="detailsSection === 1" >
+
+    <mat-expansion-panel-header >
+      <mat-panel-title> <h2 >Candidate Basic Details</h2> </mat-panel-title>
+    </mat-expansion-panel-header>
+
+        <form [formGroup]="onBoardedCandidate" >
+
+            <h1>ONBOARD CANDIDATE FORM</h1>
+      
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+              <mat-form-field  style="width:28vw"  appearance="outline" >
+                  <mat-label >FirstName</mat-label>
+                  <input type="text" matInput placeholder="firstName" ngDefaultControl formControlName="firstName" autocomplete="off" required>
+                  <mat-error *ngIf="checkError('firstName', 'required')">FirstName is required</mat-error>
+                  <mat-error *ngIf="checkError('firstName', 'pattern')">FirstName should start with upper case and should have min of 3 characters</mat-error>
+              </mat-form-field>
+          
+              <mat-form-field style="width:28vw" appearance="outline"  >
+                  <mat-label>MiddleName</mat-label>
+                  <input type="text" matInput placeholder="middleName" ngDefaultControl formControlName="middleName" autocomplete="off">
+                  <mat-error *ngIf="checkError('middleName', 'pattern')">MiddleName should start with upper case and should have min of 3 characters</mat-error>
+              </mat-form-field>
+      
+              <mat-form-field style="width:28vw" appearance="outline"  >
+                  <mat-label>LastName</mat-label>
+                  <input type="text" matInput placeholder="lastName" ngDefaultControl formControlName="lastName" autocomplete="off" required>
+                  <mat-error *ngIf="checkError('lastName', 'required')">LastName is required</mat-error>
+                  <mat-error *ngIf="checkError('lastName', 'pattern')">LastName should start with upper case and should have min of 3 characters</mat-error>
+              </mat-form-field>
+              </div>
+              
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+            <mat-form-field  style="width:28vw" appearance="outline" >
+                <mat-label >Email</mat-label>
+                <input type="text" matInput placeholder="email" ngDefaultControl formControlName="email" autocomplete="off" required>
+                <mat-error *ngIf="checkError('email', 'required')">Email is required</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field  style="width:28vw" appearance="outline" >
+                <mat-label>MobileNumber</mat-label>
+                <input type="text" matInput placeholder="mobileNumber" ngDefaultControl formControlName="mobileNum" autocomplete="off" required>
+                <mat-error *ngIf="checkError('mobileNum', 'required')">MobileNumber is required</mat-error>
+                <mat-error *ngIf="checkError('mobileNum', 'pattern')">MobileNumber Should have 10 digits</mat-error>
+            </mat-form-field>
+
+            <mat-form-field  style="width:28vw" appearance="outline" >
+                <mat-label >HiredCity</mat-label>
+                <mat-select formControlName="hiredCity" required>
+                    <mat-option *ngFor="let city of cities" [value]="city.value">
+                      {{city.viewValue}} 
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="checkError('hiredCity', 'required')">HiredCity is required</mat-error>
+            </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+            <mat-form-field  style="width:28vw" appearance="outline" >
+                <mat-label>ParentName</mat-label>
+                <input type="text" matInput placeholder="parentName" ngDefaultControl formControlName="parentName" autocomplete="off" required>  
+                <mat-error *ngIf="checkError('parentName', 'required')">ParentName is required</mat-error>
+                <mat-error *ngIf="checkError('parentName', 'pattern')">ParentName should start with upper case and should have min of 3 characters</mat-error>
+            </mat-form-field>
+
+            <mat-form-field  style="width:28vw" appearance="outline" >
+                <mat-label >parentMobile</mat-label>
+                <input type="text" matInput placeholder="parentMobile" ngDefaultControl formControlName="parentMobile" autocomplete="off" required>
+                <mat-error *ngIf="checkError('parentMobile', 'required')">ParentMobile is required</mat-error>
+                <mat-error *ngIf="checkError('parentMobile', 'pattern')">ParentMobile Should have 10 digits</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field  style="width:28vw" appearance="outline" >
+                <mat-label>TemporaryAddress</mat-label>
+                <input type="text" matInput placeholder="temporaryAddress" ngDefaultControl formControlName="temporaryAddress" autocomplete="off" required>     
+                <mat-error *ngIf="checkError('temporaryAddress', 'required')">TemporaryAddress is required</mat-error>
+            </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+            <mat-form-field  style="width:28vw" appearance="outline" >
+                <mat-label >ParentOccupation</mat-label>
+                <input type="text" matInput placeholder="parentOccupation" ngDefaultControl formControlName="parentOccupation" autocomplete="off" required>
+                <mat-error *ngIf="checkError('parentOccupation', 'required')">ParentOccupation is required</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field  style="width:28vw" appearance="outline" >
+                <mat-label>ParentAnnualSalary</mat-label>
+                <input type="text" matInput placeholder="parentAnnualSalary" ngDefaultControl formControlName="parentAnnualSalary" autocomplete="off" required>
+                <mat-error *ngIf="checkError('parentAnnualSalary', 'required')">ParentAnnualSalary is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field  style="width:28vw" appearance="outline" >
+                <mat-label >PermanentAddress</mat-label>
+                <input type="text" matInput placeholder="permanentAddress" ngDefaultControl formControlName="permanentAddress" autocomplete="off" required>
+                <mat-error *ngIf="checkError('permanentAddress', 'required')">PermanentAddress is required</mat-error>
+            </mat-form-field>
+            </div>
+        
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+
+                <mat-label>ProfileImage</mat-label>
+                <input type="file" name="image" accept="image/*" ngDefaultControl formControlName="profileImage" (change)="onSelectedImage($event)"/>
+                <img src="{{FileImage}}">
+
+            <mat-form-field  style="width:18vw" appearance="outline" >
+                <mat-label >Status</mat-label>
+                <mat-select formControlName="status" required>
+                    <mat-option *ngFor="let status of statusList" [value]="status.value">
+                        {{ status.viewValue }}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="checkError('status', 'required')">Status is required</mat-error>
+            </mat-form-field>
+        
+        </div>
+    
+           <div class="button" fxLayoutAlign="center">
+            <button mat-raised-button (click)="expansionBank()">SUBMIT</button>
+            <button mat-raised-button type="reset">RESET</button>
+            <button [routerLink]="['/home']" mat-raised-button>HOME</button>
+           </div>
+        </form>  
+    </mat-expansion-panel>
+    </mat-card>
+</div>
+
+
+<mat-card class="card">
+    <mat-expansion-panel
+    [expanded]="bankSection === 0"
+    [disabled]="bankSection === 1" >
+
+    <mat-expansion-panel-header >
+      <mat-panel-title> <h2 >Bank Details</h2> </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <form [formGroup]="bankInfo" >
+  
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+          <mat-form-field  style="width:18vw"  appearance="outline" >
+              <mat-label >PanNumber</mat-label>
+              <input type="text" matInput placeholder="panNumber" ngDefaultControl formControlName="panNumber" autocomplete="off" required>
+              <mat-error *ngIf="checkErrorBank('panNumber', 'required')">PanNumber is required</mat-error>
+              <mat-error *ngIf="checkErrorBank('panNumber', 'pattern')">KIHSN3456K - format required</mat-error>
+          </mat-form-field>
+      
+          <mat-form-field style="width:18vw" appearance="outline" >
+              <mat-label>AadharNumber</mat-label>
+              <input type="text" matInput placeholder="aadharNumber" ngDefaultControl formControlName="aadharNumber" autocomplete="off" required>
+              <mat-error *ngIf="checkErrorBank('aadharNumber', 'required')">AadharNumber is required</mat-error>
+              <mat-error *ngIf="checkErrorBank('aadharNumber', 'pattern')">12 digit without space required</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field style="width:18vw" appearance="outline" >
+              <mat-label>BankName</mat-label>
+              <mat-select formControlName="bankName" required>
+                  <mat-option *ngFor="let bank of bankList" [value]="bank.value">
+                        {{ bank.value }}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="checkErrorBank('bankName', 'required')">BankName is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+            <mat-form-field  style="width:18vw"  appearance="outline" >
+                <mat-label >bankAccountNumber</mat-label>
+                <input type="text" matInput placeholder="bankAccountNumber" ngDefaultControl formControlName="bankAccountNumber" autocomplete="off" required>
+                <mat-error *ngIf="checkErrorBank('bankAccountNumber', 'required')">BankAccountNumber is required</mat-error>
+                <mat-error *ngIf="checkErrorBank('bankAccountNumber', 'pattern')">11 digit without space is required</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field style="width:18vw" appearance="outline"  >
+                <mat-label>ifscCode</mat-label>
+                <input type="text" matInput placeholder="ifscCode" ngDefaultControl formControlName="ifscCode" autocomplete="off" required>
+                <mat-error *ngIf="checkErrorBank('ifscCode', 'required')">IFSC Code is required</mat-error>
+                <mat-error *ngIf="checkErrorBank('ifscCode', 'pattern')">JLOP9823748 - format required</mat-error>
+            </mat-form-field>
+          </div>
+    
+      <div style="margin-top: 30px;" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+            <mat-label>PassbookPath</mat-label>
+            <input type="file" ngDefaultControl formControlName="passbookPath" (change)="onSelectedPassbookImage($event)" autocomplete="off" required>
+
+            <mat-label >panPath</mat-label>
+            <input type="file" ngDefaultControl formControlName="panPath" (change)="onSelectedPanImage($event)" autocomplete="off" required>
+    
+            <mat-label>aadharPath</mat-label>
+            <input type="file" ngDefaultControl formControlName="aadharPath" (change)="onSelectedAadharImage($event)" autocomplete="off" required>       
+       </div>
+
+       <div class="button" fxLayoutAlign="center">
+        <button mat-raised-button (click)="expansionQualification()">SUBMIT</button>
+        <button mat-raised-button (click)="backDetailsSection()">BACK</button>
+        <button mat-raised-button type="reset">RESET</button>
+        <button [routerLink]="['/home']" mat-raised-button>HOME</button>
+       </div>
+    </form>
+</mat-expansion-panel>
+</mat-card>
+
+<mat-card class="card">
+
+    <mat-expansion-panel
+    [expanded]="qualifSection === 0"
+    [disabled]="qualifSection === 1" >
+
+    <mat-expansion-panel-header >
+      <mat-panel-title> <h2 >Qualification Details</h2> </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <form [formGroup]="QualificationInfo" (ngSubmit)="onSubmit()">
+  
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+          <div  style="width:18vw"  appearance="outline" >
+              <mat-label >Diploma</mat-label><br>
+              <mat-radio-group ngDefaultControl formControlName="diploma" required>  
+                <mat-radio-button [value]="true">Yes</mat-radio-button>  
+                <mat-radio-button style="margin-left: 70px;" [value]="false">No</mat-radio-button>
+            </mat-radio-group> 
+        </div>
+      
+          <mat-form-field style="width:18vw" appearance="outline" >
+              <mat-label>Degree</mat-label>
+              <mat-select formControlName="degree" required>
+                <mat-option *ngFor="let degree of qualificationList" [value]="degree.value">
+                  {{degree.viewValue}} 
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="checkErrorQualification('degree', 'required')">Degree is required</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field style="width:18vw" appearance="outline" >
+              <mat-label>field</mat-label>
+              <input type="text" matInput placeholder="field" ngDefaultControl formControlName="field" autocomplete="off" required>
+              <mat-error *ngIf="checkErrorQualification('field', 'required')">Field is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+            <mat-form-field  style="width:18vw"  appearance="outline" >
+                <mat-label >yearOfPassing</mat-label>
+                <mat-select formControlName="yearOfPassing" required>
+                    <mat-option *ngFor="let pass of yearOfPassList" [value]="pass.value">
+                      {{pass.viewValue}} 
+                    </mat-option>
+                  </mat-select>
+                <mat-error *ngIf="checkErrorQualification('yearOfPassing', 'required')">YearOfPassing is required</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field style="width:18vw" appearance="outline" >
+                <mat-label>finalPercentage</mat-label>
+                <input type="text" matInput placeholder="finalPercentage" ngDefaultControl formControlName="finalPercentage" autocomplete="off" required>
+                <mat-error *ngIf="checkErrorQualification('finalPercentage', 'required')">FinalPercentage is required</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field style="width:18vw" appearance="outline" >
+                <mat-label>aggrPercentage</mat-label>
+                <input type="text" matInput placeholder="aggrPercentage" ngDefaultControl formControlName="aggrPercentage" autocomplete="off" required>
+                <mat-error *ngIf="checkErrorQualification('aggrPercentage', 'required')">AggrPercentage is required</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+            <mat-form-field  style="width:18vw"  appearance="outline" >
+                <mat-label >enggCertificate</mat-label>
+                <input type="text" matInput placeholder="enggCertificate" ngDefaultControl formControlName="enggCertificate" autocomplete="off" required>
+                <mat-error *ngIf="checkErrorQualification('enggCertificate', 'required')">EnggCertificate is required</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field style="width:18vw" appearance="outline" >
+                <mat-label>finalCertificate</mat-label>
+                <input type="text" matInput placeholder="finalCertificate" ngDefaultControl formControlName="finalCertificate" autocomplete="off" required>
+                <mat-error *ngIf="checkErrorQualification('finalCertificate', 'required')">FinalCertificate is required</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field style="width:18vw" appearance="outline" >
+                <mat-label>trainingInstitute</mat-label>
+                <input type="text" matInput placeholder="trainingInstitute" ngDefaultControl formControlName="trainingInstitute" autocomplete="off" required>
+                <mat-error *ngIf="checkErrorQualification('trainingInstitute', 'required')">TrainingInstitute is required</mat-error>
+            </mat-form-field>
+          </div>
+    
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+        <mat-form-field  style="width:18vw" appearance="outline" >
+            <mat-label >trainingDuration</mat-label>
+            <mat-select formControlName="trainingDuration" required>
+                <mat-option *ngFor="let duration of trainingDurationList" [value]="duration.value">
+                    {{ duration.viewValue }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="checkErrorQualification('trainingDuration', 'required')">TrainingDuration is required</mat-error>
+        </mat-form-field>
+    
+        <mat-form-field  style="width:18vw" appearance="outline" >
+            <mat-label>course</mat-label>
+            <input type="text" matInput placeholder="course" ngDefaultControl formControlName="course" autocomplete="off" required>   
+            <mat-error *ngIf="checkErrorQualification('course', 'required')">Course is required</mat-error>
+        </mat-form-field>
+       </div>
+
+       <div class="button" fxLayoutAlign="center">
+        <button mat-raised-button type="submit">SUBMIT</button>
+        <button mat-raised-button (click)="backBankSection()">BACK</button>
+        <button mat-raised-button type="reset">RESET</button>
+        <button [routerLink]="['/home']" mat-raised-button>HOME</button>
+       </div>
+    </form>
+</mat-expansion-panel>
+</mat-card>
+

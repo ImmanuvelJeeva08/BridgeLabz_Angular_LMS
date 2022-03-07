@@ -1,0 +1,172 @@
+<mat-card class="head">
+        <mat-card class="head1">
+            <div class="container emp-profile">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="profile-img">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                                <div class="file btn btn-lg btn-primary">
+                                    {{hiredCandidate.firstName}}
+                                    <input type="file" name="file"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="profile-head">
+                                        <h2>
+                                            {{hiredCandidate.firstName}} {{hiredCandidate.middleName}} {{hiredCandidate.lastName}}
+                                        </h2>
+                                        <h4>
+                                            {{hiredCandidate.email}}
+                                        </h4>
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button routerLink="/displayAllHired" mat-raised-button>Back</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="profile-work">
+                                <h4>WORK LINK</h4>
+                                <a >Website Link</a><br/>
+                                <a >Bootsnipp Profile</a><br/>
+                                <a >Bootply Profile</a>
+                                <p>SKILLS</p>
+                                <a >Web Designer</a><br/>
+                                <a >Web Developer</a><br/>
+                                <a >WordPress</a><br/>
+                                <a >WooCommerce</a><br/>
+                                <a >PHP, .Net</a><br/>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Name</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.firstName}} {{hiredCandidate.middleName}} {{hiredCandidate.lastName}}</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Mobile</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.mobileNum}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>HiredCity</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.hiredCity}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>HiredDate</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.hiredDate}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Degree</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.degree}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>HiredLab</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.hiredLab}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>AttitudeRemark</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.attitudeRemark}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>CommunicationRemark</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.communicationRemark}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>KnowledgeRemark</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.knowledgeRemark}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>onboardingStatus</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.onboardingStatus}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>joindate</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.joindate}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>AggrPercentage</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.aggrPer}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>currentPincode</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.currentPincode}}</p>
+                                                </div>
+                                            </div><div class="row">
+                                                <div class="col-md-6">
+                                                    <label>permanentPincode</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{hiredCandidate.permanentPincode}}</p>
+                                                </div>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>           
+            </div>
+            
+        </mat-card>
+</mat-card>

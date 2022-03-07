@@ -1,0 +1,52 @@
+<div class="head" fxLayoutAlign="center">
+    <mat-card >
+        <form [formGroup]="addAdmin" (ngSubmit)="onSubmit()">
+
+            <div class="head1">
+                <span>Add New Administrator</span>
+            </div>
+
+            <div fxLayout="column" fxLayoutAlign="center">
+                <mat-form-field style="width:25vw" appearance="outline">
+                    <mat-label>FirstName</mat-label>
+                    <input type="text" matInput ngDefaultControl formControlName="firstName" autocomplete="off">
+                </mat-form-field>
+
+                <mat-form-field style="width:25vw" appearance="outline">
+                    <mat-label>LastName</mat-label>
+                    <input type="text" matInput ngDefaultControl formControlName="lastName" autocomplete="off">
+                </mat-form-field>
+
+                <mat-form-field style="width:25vw" appearance="outline">
+                    <mat-label>MobileNo</mat-label>
+                    <input type="text" matInput ngDefaultControl formControlName="mobile" autocomplete="off">
+                </mat-form-field>
+
+                <mat-form-field style="width:25vw" appearance="outline">
+                    <mat-label>EmailID</mat-label>
+                    <input type="text" matInput ngDefaultControl formControlName="emailId" autocomplete="on">
+                </mat-form-field>
+
+                <mat-form-field style="width:25vw" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input type="text" matInput ngDefaultControl formControlName="password" autocomplete="off">
+                </mat-form-field>
+            </div>
+
+            <div class="user-box">
+                <label>Upload Profile Image</label><br><br>
+                <input type="file" alt="image" (change)="onSelectedImage($event)"  formControlName="profilePath" required>
+                <img src="{{profile}}">
+            </div>
+
+            <div class="button">
+                <button mat-raised-button class="submit" type="submit">Submit</button>
+                <button mat-raised-button class="reset" type="reset">Reset</button>
+                <button mat-raised-button [routerLink]="['/login']" >Login</button>
+            </div>
+
+        </form>
+    </mat-card>
+</div>
+
+

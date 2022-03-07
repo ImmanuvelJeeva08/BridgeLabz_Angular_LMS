@@ -1,0 +1,18 @@
+<mat-card fxLayoutAlign="center center" style="background-color: rgb(14, 146, 207);">
+    <div >
+        <h3>Please enter the 4-digit verification code we sent via Email </h3>
+        <div class="head" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+            <input type="text" maxlength="1" [(ngModel)]="first" style="width:5vw; height:5vw" autocomplete="off">
+            <input type="text" maxlength="1" [(ngModel)]="second" style="width:5vw; height:5vw" autocomplete="off">
+            <input type="text" maxlength="1" [(ngModel)]="third" style="width:5vw; height:5vw" autocomplete="off">
+            <input type="text" maxlength="1" [(ngModel)]="four" style="width:5vw; height:5vw" autocomplete="off">
+        </div><br><br>
+        <div fxLayoutAlign="center">
+            <button (click)="onSubmit()" class="btn btn-primary btn-embossed">Verify</button>
+        </div>
+        <div>
+            <div class="text-center mt-1"><span class="d-block mobile-text">Don't receive the code?</span><span (click)="resendOTP()" class="font-weight-bold text-danger cursor">Resend</span></div>
+        </div>
+    </div>
+    
+</mat-card>

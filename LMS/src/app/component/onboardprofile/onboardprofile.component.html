@@ -1,0 +1,60 @@
+<mat-card>
+
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img width="100px" [src]="onBoardCandidate.profileImage">
+                <span class="font-weight-bold">{{onBoardCandidate.firstName}} {{onBoardCandidate.middleName}} {{onBoardCandidate.lastName}}</span><span class="text-black-50">{{onBoardCandidate.email}}</span><span> </span>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4"><label class="labels">Name</label><p>{{onBoardCandidate.firstName}}</p></div>
+                    <div class="col-md-4"><label class="labels">MiddleName</label><p>{{onBoardCandidate.middleName}}</p></div>
+                    <div class="col-md-4"><label class="labels">Surname</label><p>{{onBoardCandidate.lastName}}</p></div>
+                </div>
+                <div class="row mt-3">
+                    <div ><label class="labels">Mobile Number</label><p>{{onBoardCandidate.mobileNum}}</p></div>
+                    <div ><label class="labels">Temporary Address</label><p>{{onBoardCandidate.temporaryAddress}}</p></div>
+                    <div ><label class="labels">Permanent Address</label><p>{{onBoardCandidate.permanentAddress}}</p></div>
+                    <div ><label class="labels">Email ID</label><p>{{onBoardCandidate.email}}</p></div>
+                    <div ><label class="labels">HiredCity</label><p>{{onBoardCandidate.hiredCity}}</p></div>
+                    <div ><label class="labels">parentName</label><p>{{onBoardCandidate.parentName}}</p></div>
+                    <div ><label class="labels">parentMobile</label><p>{{onBoardCandidate.parentMobile}}</p></div>
+                    <div ><label class="labels">parentOccupation</label><p>{{onBoardCandidate.parentOccupation}}</p></div>
+                    <div ><label class="labels">parentAnnualSalary</label><p>{{onBoardCandidate.parentAnnualSalary}}</p></div>
+                    <div ><label class="labels">Status</label><p>{{onBoardCandidate.status}}</p></div>
+                </div>
+                <div class="mt-5 text-center"><button routerLink="/displayAllOnboard" class="btn btn-primary profile-button" type="button">Back</button></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div ><span> Experience</span></div><br>
+                <div ><label class="labels">PanNumber</label><p>{{bankInfo.panNumber}}</p></div>
+                <div ><label class="labels">aadharNumber</label><p>{{bankInfo.aadharNumber}}</p></div>
+                <div ><label class="labels">BankName</label><p>{{bankInfo.bankName}}</p></div>
+                <div ><label class="labels">BankAccountNumber</label><p>{{bankInfo.bankAccountNumber}}</p></div>
+                <div ><label class="labels">IFSC Code</label><p>{{bankInfo.ifscCode}}</p></div>
+            </div>
+            <div class="p-3 py-5">
+                <div ><span> Qualification</span></div><br>
+                <div ><label class="labels">Degree</label><p>{{qualificationInfo.degree}}</p></div>
+                <div ><label class="labels">YearOfPassing</label><p>{{qualificationInfo.yearOfPassing}}</p></div>
+                <div ><label class="labels">FinalPercentage</label><p>{{qualificationInfo.finalPercentage}}</p></div>
+                <div ><label class="labels">AggrPercentage</label><p>{{qualificationInfo.aggrPercentage}}</p></div>
+                <div ><label class="labels">TrainingInstitute</label><p>{{qualificationInfo.trainingInstitute}}</p></div>
+                <div ><label class="labels">TrainingDuration</label><p>{{qualificationInfo.trainingDuration}}</p></div>
+                <div ><label class="labels">Course</label><p>{{qualificationInfo.course}}</p></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</mat-card>
+

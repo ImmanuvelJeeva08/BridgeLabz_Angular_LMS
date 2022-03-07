@@ -1,0 +1,57 @@
+<div class="main-content">
+    <div class="header-content">
+
+        <div class="emp-detail-text">
+            Hired People Details
+
+            <div class="emp-count">{{hiredPeopleCount}}</div>
+        </div>
+        <div>
+            <button [routerLink]="['/home']" mat-raised-button>Back To Home</button>
+        </div>
+
+    </div>
+
+    <!--Contains the table structure of the User details
+        When the get method is hit in the HTTP server, the employee details get populated in the tabular form.
+    -->
+    <div class="table-main">
+        <table id ="display" class="table">
+            <tr>
+                <!--Table header-->
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>MobileNumber</th>
+                <th>HiredCity</th>
+                <th>Degree</th>
+                <th>AggrPer</th>
+                <th>HiredDate</th>
+                <th>Joindate</th>
+                <th>Actions</th>
+            </tr>
+
+            <!--*ngFor : iterates inside the userDetails object list, and returns the user object value-->
+            <tr *ngFor="let user of hiredPeople">
+                
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.mobileNum}}</td>
+                <td>{{user.hiredCity}}</td>
+                <td>{{user.degree}}</td>
+                <td>{{user.aggrPer}}</td> 
+                <td>{{user.hiredDate | date: 'dd-MM-yyyy'}}</td> 
+                <td>{{user.joindate | date: 'dd-MM-yyyy'}}</td> 
+
+                <!--To update and delete an user from the database-->
+                <td>
+                    <a (click)="update(user)"><span class="material-icons red-color">edit </span></a>
+                    &nbsp;<a ><mat-icon (click)="remove(user.id)" >delete</mat-icon></a>
+                    &nbsp;<a ><mat-icon (click)="goToProfile(user.id)">storage</mat-icon></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
